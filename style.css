@@ -1,5 +1,6 @@
 html {
     font-family: "Nunito", sans-serif;
+    margin: 25px;
 }
 header {
     display: flex;
@@ -9,26 +10,31 @@ header h1 {
     color: orange;
     font-size: 20px;
 }
-
+@media (min-width: 1000px) {
+    header {
+        display: flex;
+        justify-content: flex-start;
+    }
+}
 main > :nth-child(1) {
     font-size: 40px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin: 15px;
+    margin-top: 0;
 }
 
 section button {
     background-color: orange;
     width: 120px;
     height: 40px;
-    border-radius: 40px;
+    border-radius: 0 40px 40px 40px;
     border: 0;
     color: white;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 1000px) {
     main > :nth-child(1) {
         font-size: 40px;
         display: flex;
@@ -41,8 +47,93 @@ section button {
         background-color: orange;
         width: 120px;
         height: 40px;
-        border-radius: 40px;
+        border-radius: 0 40px 40px 40px;
         border: 0;
         color: white;
+    }
+    section button:hover {
+        background-color: white;
+        width: 120px;
+        height: 40px;
+        border-radius: 0 40px 40px 40px;
+        border: solid 2px orange;
+        color: orange;
+    }
+}
+main > :nth-child(2) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+section > article {
+    width: 70vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+article > img {
+    width: 100%;
+    border-radius: 40px;
+    filter: brightness(0.5);
+}
+article > div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+div > p {
+    margin: 0;
+}
+div > p:nth-child(2) {
+    font-weight: bold;
+    font-size: 20px;
+}
+@media (min-width: 1000px) {
+    main > :nth-child(2) {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    section > article {
+        width: 33vw;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin: 20px;
+    }
+    article > img {
+        z-index: 2;
+        width: 100%;
+        border-radius: 40px;
+        filter: brightness(1);
+    }
+    article > img:hover {
+        filter: brightness(0.5);
+        z-index: 0;
+    }
+
+    article > div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+    }
+    div > p {
+        z-index: 1;
+        margin: 0;
+    }
+    div > p:nth-child(2) {
+        font-weight: bold;
+        font-size: 20px;
     }
 }
